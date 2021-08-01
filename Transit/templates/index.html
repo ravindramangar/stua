@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script>
+	var broadwaysource = new EventSource("/broadway");
+	broadwaysource.onmessage = function(event) {
+		$('#broadway').text(event.data);
+	}
+    var cityhallsource = new EventSource("/cityhall");
+	cityhallsource.onmessage = function(event) {
+		$('#cityhall').text(event.data);
+	}
+	</script>
+</head>
+<body>
+	<div class="container-fluid" style="background-color: aqua;">
+		<h1 id="broadway">
+			Starting
+		</h1>
+	</div>
+    <div class="container-fluid" style="background-color: lightpink;">
+		<h1 id="cityhall">
+			Starting
+		</h1>
+	</div>
+</div>
+</body>
+</html>
